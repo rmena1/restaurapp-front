@@ -9,7 +9,7 @@ const TableFooter = ({ range, setPage, page, slice }) => {
     }
   }, [slice, page, setPage]);
   return (
-    <div className={styles.tableFooter}>
+    <div className={styles.tableFooter + '  mx-auto'}>
       {range.map((el, index) => (
         <button
           key={index}

@@ -1,4 +1,4 @@
-import Table from "./components/Table";
+import Table from "../components/Table";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
     return (
         <>
             <div className='h-20'/>
-            <Table rowsPerPage={25} data={data.slice(0, 500)}/>
+            <Table rowsPerPage={50} data={data.slice(0, 1000)}/>
         </>
     );
 }

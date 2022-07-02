@@ -9,7 +9,7 @@ const Table = ({ data, rowsPerPage }) => {
   const { slice, range } = useTable(data, page, rowsPerPage);
   return (
     <>
-      <table className={styles.table}>
+      <table className={styles.table + ' mx-auto'}>
         <thead className={styles.tableRowHeader}>
           <tr>
             <th className={styles.tableHeader}>Cashier name</th>
@@ -29,7 +29,7 @@ const Table = ({ data, rowsPerPage }) => {
           ))}
         </tbody>
       </table>
-      <TableFooter range={range} slice={slice} setPage={setPage} page={page} />
+      <TableFooter range={range} slice={slice} setPage={setPage} page={page}/>
     </>
   );
 };
