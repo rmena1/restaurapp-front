@@ -24,10 +24,20 @@
 
 .activeButton {
   color: white;
-  background: #185adb;
+  background: #075985;
+}
+
+.activeButton:hover {
+  color: white;
+  background: #0369a1;
 }
 
 .inactiveButton {
   color: #2c3e50;
   background: #f9f9f9;
+}
+
+.inactiveButton:hover {
+  color: #2c3e50;
+  background: #f1f5f9;
 }
