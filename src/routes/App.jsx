@@ -7,7 +7,8 @@ function App() {
     const backend_url = process.env.REACT_APP_BACK_URL;
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
-    
+
+    // Get info between selected dates from backend
     useEffect(() => {
         if (startDate && endDate) {
             const start = String(startDate.getFullYear()) + '-' + String(('0' + (startDate.getMonth() + 1)).slice(-2)) + '-' + String(('0' + (startDate.getDate())).slice(-2));
@@ -24,7 +25,7 @@ function App() {
         }
     }, [startDate, endDate, backend_url]);
 
-    // get data from API
+    // get data from backend on render
     useEffect(() => {
         console.log('URL: ', backend_url);
         fetch(backend_url + "/get_all")

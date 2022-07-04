@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Calculate range of pages
 const calculateRange = (data, rowsPerPage) => {
   const range = [];
   const num = Math.ceil(data.length / rowsPerPage);
@@ -9,11 +10,12 @@ const calculateRange = (data, rowsPerPage) => {
   return range;
 };
 
+// Slice data for each page based on page and rowsPerPage
 const sliceData = (data, page, rowsPerPage) => {
   return data.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 };
 
-
+// Calculate range and slice data to display in table
 const useTable = (data, page, rowsPerPage) => {
   const [tableRange, setTableRange] = useState([]);
   const [slice, setSlice] = useState([]);
