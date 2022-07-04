@@ -32,7 +32,7 @@ function App() {
                 })
                 .catch(err => console.log(err));
         }
-    }, [startDate, endDate]);
+    }, [startDate, endDate, backend_url]);
 
     // get data from API
     useEffect(() => {
@@ -47,7 +47,7 @@ function App() {
                 }
             })
             .catch(err => console.log(err));
-    }, []);
+    }, [backend_url]);
     
 
     return (
