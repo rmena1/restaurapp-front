@@ -1,3 +1,9 @@
+# RestaurAPP
+
+Esta aplicación es el Front End creado para la prueba técnica de aplicación a toteat. Este fue desarrollado en React y en las siguientes secciones se detalla cómo ejecutarlo en su máquina local. Antes de ejecutar este programa localmente, es necesario crear un archivo .env e incluir en este la variable REACT_APP_BACK_URL con la url del Back End de la aplicación.
+
+Esta aplicación fue deployada en Heroku, y se puede acceder a esta desde el siguiente [link](https://restaurapp-front.herokuapp.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
