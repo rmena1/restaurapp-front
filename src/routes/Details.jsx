@@ -18,7 +18,7 @@ const Details = () => {
             <div className='flex'>
                 <div className='flex-1'>
                     <div className='pb-5'>
-                        <h class="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Información</h>
+                        <h1 className="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Información</h1>
                     </div>
                     <div className='pl-3'>
                         <div className='flex'>
@@ -49,14 +49,14 @@ const Details = () => {
                 </div>
                 <div className='flex-1'>
                     <div className='pb-5'>
-                        <h class="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Pagos</h>
+                        <h1 className="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Pagos</h1>
                     </div>
                     <SimpleTable headers={paymentHeaders} data={state.payments} dataKeys={paymentKeys}/>
                 </div>
             </div>
             <div className='pt-10'>
                 <div className='pb-5 '>
-                    <h class="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Productos</h>
+                    <h1 className="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Productos</h1>
                 </div>
                 <SimpleTable headers={productHeaders} data={state.products} dataKeys={productKeys}/>
             </div>
