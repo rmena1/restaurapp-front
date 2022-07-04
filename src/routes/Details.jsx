@@ -4,10 +4,10 @@ import SimpleTable from '../components/SimpleTable';
 
 const Details = () => {
     const {state} = useLocation();
-    const [paymentHeaders, setPaymentHeaders] = useState(['Tipo', 'Cantidad ($)']);
-    const [paymentKeys, setPaymentKeys] = useState(['type', 'amount']);
-    const [productHeaders, setProductHeaders] = useState(['Producto', 'Categoría', 'Cantidad', 'Precio ($)']);
-    const [productKeys, setProductKeys] = useState(['name', 'category', 'quantity', 'price']);
+    const [paymentHeaders] = useState(['Tipo', 'Cantidad ($)']);
+    const [paymentKeys] = useState(['type', 'amount']);
+    const [productHeaders] = useState(['Producto', 'Categoría', 'Cantidad', 'Precio ($)']);
+    const [productKeys] = useState(['name', 'category', 'quantity', 'price']);
 
     useEffect(() => {
         window.scrollTo(0, 0)
