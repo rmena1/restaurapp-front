@@ -9,18 +9,20 @@ function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
     const years = [];
+
     // add years from 2018 to current year to the array
     for (let i = 2010; i <= new Date().getFullYear(); i++) {
         years.push(i);
     }
     
+    // Set dates from calendar when the user clicks on a date
     const onChange = (dates) => {
         const [start, end] = dates;
         setStartDate(start)
         setEndDate(end)
     };
 
-
+    // Get info between selected dates from backend
     useEffect(() => {
         if (startDate && endDate) {
             const start = String(startDate.getFullYear()) + '-' + String(('0' + (startDate.getMonth() + 1)).slice(-2)) + '-' + String(('0' + (startDate.getDate())).slice(-2));
@@ -34,7 +36,7 @@ function App() {
         }
     }, [startDate, endDate, backend_url]);
 
-    // get data from API
+    // get data from backend on render
     useEffect(() => {
         console.log('URL: ', backend_url);
         fetch(backend_url + "/get_all")

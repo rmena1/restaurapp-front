@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import SimpleTable from '../components/SimpleTable';
 
 const Details = () => {
+    // get data from route state
     const {state} = useLocation();
     const [paymentHeaders] = useState(['Tipo', 'Cantidad ($)']);
     const [paymentKeys] = useState(['type', 'amount']);
     const [productHeaders] = useState(['Producto', 'Categoría', 'Cantidad', 'Precio ($)']);
     const [productKeys] = useState(['name', 'category', 'quantity', 'price']);
 
+    // Scroll to top on render
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])

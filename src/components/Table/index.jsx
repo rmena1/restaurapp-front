@@ -10,6 +10,7 @@ const Table = ({ data, rowsPerPage }) => {
   const { slice, range } = useTable(data, page, rowsPerPage);
   const navigate = useNavigate();
 
+  // Navigate to details page and set data as route state
   const handleNavigate = (index) => {
     navigate(`/details`, { state: slice[index] });
   }
