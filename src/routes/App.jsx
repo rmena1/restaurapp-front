@@ -1,5 +1,6 @@
 import Table from "../components/Table";
 import { useState, useEffect } from "react";
+import DateRangeCalendar from "../components/DateRangeCalendar";
 
 function App() {
     const [data, setData] = useState([]);
@@ -7,13 +8,6 @@ function App() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
     
-    const onChange = (dates) => {
-        const [start, end] = dates;
-        setStartDate(start)
-        setEndDate(end)
-    };
-
-
     useEffect(() => {
         if (startDate && endDate) {
             const start = String(startDate.getFullYear()) + '-' + String(('0' + (startDate.getMonth() + 1)).slice(-2)) + '-' + String(('0' + (startDate.getDate())).slice(-2));
@@ -22,6 +16,9 @@ function App() {
                 .then(res => res.json())
                 .then(data => {
                     setData(data);
+                    if (data.length === 0) {
+                        alert("No hay datos para el rango seleccionado. Por favor elija otras fechas.");
+                    }
                 })
                 .catch(err => console.log(err));
         }
@@ -42,78 +39,10 @@ function App() {
             .catch(err => console.log(err));
     }, [backend_url]);
     
-
     return (
         <>
             <div className='mx-auto w-max h-auto pt-10 pb-5'>
-                <DatePicker
-                    renderCustomHeader={({
-                        date,
-                        changeYear,
-                        monthDate,
-                        customHeaderCount,
-                        decreaseMonth,
-                        increaseMonth,
-                    }) => (
-                        <div>
-                        <button
-                            aria-label="Previous Month"
-                            className={
-                            "react-datepicker__navigation react-datepicker__navigation--previous"
-                            }
-                            style={customHeaderCount === 1 ? { visibility: "hidden" } : null}
-                            onClick={decreaseMonth}
-                        >
-                            <span
-                            className={
-                                "react-datepicker__navigation-icon react-datepicker__navigation-icon--previous"
-                            }
-                            >
-                            {"<"}
-                            </span>
-                        </button>
-                        <span className="react-datepicker__current-month">
-                            {monthDate.toLocaleString("en-US", {
-                            month: "long",
-                            })}
-                        </span>
-                        <select
-                            value={date.getFullYear()}
-                            onChange={({ target: { value } }) => changeYear(value)}>
-                                {years.map((option) => (
-                                    <option key={option} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        <button
-                            aria-label="Next Month"
-                            className={
-                            "react-datepicker__navigation react-datepicker__navigation--next"
-                            }
-                            style={customHeaderCount === 0 ? { visibility: "hidden" } : null}
-                            onClick={increaseMonth}
-                        >
-                            <span
-                            className={
-                                "react-datepicker__navigation-icon react-datepicker__navigation-icon--next"
-                            }
-                            >
-                            {">"}
-                            </span>
-                        </button>
-                        </div>
-                    )}
-                    monthsShown={2}
-                    selected={startDate}
-                    onChange={onChange}
-                    startDate={startDate}
-                    endDate={endDate}
-                    selectsRange
-                    inline
-                    maxDate={new Date()}
-                    dateFormat="yyyy-MM-dd"
-                />
+                <DateRangeCalendar startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate}/>
             </div>
             <Table rowsPerPage={50} data={data.slice(0, 1000)}/>
         </>
