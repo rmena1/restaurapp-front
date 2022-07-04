@@ -4,8 +4,10 @@ import SimpleTable from '../components/SimpleTable';
 
 const Details = () => {
     const {state} = useLocation();
-    const [headersPayment, setHeadersPayment] = useState(['Tipo', 'Cantidad ($)']);
+    const [paymentHeaders, setPaymentHeaders] = useState(['Tipo', 'Cantidad ($)']);
     const [paymentKeys, setPaymentKeys] = useState(['type', 'amount']);
+    const [productHeaders, setProductHeaders] = useState(['Producto', 'Categoría', 'Cantidad', 'Precio ($)']);
+    const [productKeys, setProductKeys] = useState(['name', 'category', 'quantity', 'price']);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -49,14 +51,14 @@ const Details = () => {
                     <div className='pb-5'>
                         <h class="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Pagos</h>
                     </div>
-                    <SimpleTable headers={headersPayment} data={state.payments} dataKeys={paymentKeys}/>
+                    <SimpleTable headers={paymentHeaders} data={state.payments} dataKeys={paymentKeys}/>
                 </div>
             </div>
             <div className='pt-10'>
                 <div className='pb-5 '>
                     <h class="font-medium leading-tight text-xl mt-0 mb-2 text-sky-800">Productos</h>
                 </div>
-                <SimpleTable headers={['Producto', 'Categoría', 'Cantidad', 'Precio ($)']} data={state.products} dataKeys={['name', 'category', 'quantity', 'price']}/>
+                <SimpleTable headers={productHeaders} data={state.products} dataKeys={productKeys}/>
             </div>
         </div>
     )
