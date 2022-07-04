@@ -19,9 +19,9 @@ const Table = ({ data, rowsPerPage }) => {
       <table className={styles.table + ' mx-auto'}>
         <thead className={styles.tableRowHeader}>
           <tr>
-            <th className={styles.tableHeader}>Cashier name</th>
-            <th className={styles.tableHeader}>Waiter name</th>
-            <th className={styles.tableHeader}>Date</th>
+            <th className={styles.tableHeader}>Nombre cajero</th>
+            <th className={styles.tableHeader}>Nombre garzón</th>
+            <th className={styles.tableHeader}>Fecha</th>
             <th className={styles.tableHeader}>Total</th>
             <th className={styles.tableHeader}>Acciones</th>
           </tr>
