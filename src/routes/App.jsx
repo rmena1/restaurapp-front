@@ -1,18 +1,11 @@
 import Table from "../components/Table";
 import { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
     const [data, setData] = useState([]);
     const backend_url = process.env.REACT_APP_BACK_URL;
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(null);
-    const years = [];
-    // add years from 2018 to current year to the array
-    for (let i = 2010; i <= new Date().getFullYear(); i++) {
-        years.push(i);
-    }
     
     const onChange = (dates) => {
         const [start, end] = dates;
