@@ -1,26 +1,20 @@
 import Table from "../components/Table";
 import { useState, useEffect } from "react";
 import DateRangeCalendar from "../components/DateRangeCalendar";
-import DataInfo from "../components/DataInfo";
+import { useNavigate } from "react-router-dom";
 
 function App() {
     const [data, setData] = useState([]);
     const backend_url = process.env.REACT_APP_BACK_URL;
     const [startDate, setStartDate] = useState(new Date("2018-01-01"));
     const [endDate, setEndDate] = useState(new Date());
-    const [info, setInfo] = useState({});
     const [first_render, setFirstRender] = useState(true);
+    const navigate = useNavigate();
 
-    // Get info between selected dates from backend
-    const get_info = async () => {
+    const handle_report_navigate = () => {
         const start = String(startDate.getFullYear()) + '-' + String(('0' + (startDate.getMonth() + 1)).slice(-2)) + '-' + String(('0' + (startDate.getDate())).slice(-2));
         const end = String(endDate.getFullYear()) + '-' + String(('0' + (endDate.getMonth() + 1)).slice(-2)) + '-' + String(('0' + (endDate.getDate())).slice(-2));
-        fetch(`${backend_url}/get_info/${start}/${end}`)
-            .then(res => res.json())
-            .then(data => {
-                setInfo(data);
-            })
-            .catch(err => console.log(err));
+        navigate(`/report/${start}/${end}`);
     }
 
     // Get data between selected dates from backend
@@ -37,7 +31,6 @@ function App() {
                     }
                 })
                 .catch(err => console.log(err));
-            get_info();
         }else{
             setFirstRender(false);
         }
@@ -56,7 +49,6 @@ function App() {
                 }
             })
             .catch(err => console.log(err));
-        get_info();
     }, [backend_url]);
     
     return (
@@ -66,7 +58,9 @@ function App() {
                     <DateRangeCalendar startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate}/>
                 </div>
                 <div className='mx-auto w-max h-auto pt-10 pb-5 ml-0 my-auto'>
-                    <DataInfo info={info}/>
+                    <div className='mx-auto'>
+                        <button className={'bg-sky-800 hover:bg-sky-700 text-white font-bold py-5 px-10 rounded'} onClick={() => handle_report_navigate()}>Generar Reporte</button>
+                    </div>
                 </div>
             </div>
             
