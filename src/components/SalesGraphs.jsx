@@ -73,6 +73,7 @@ const SalesGraphs = ({ dateFrom, dateTo }) => {
     return (
         <div>
             <div className='w-full my-20'>
+            <h1 className="font-medium leading-tight text-xl mt-0 text-sky-800 mb-10">Recaudación total diaria por categoría y producto</h1>
                 <div className='w-2/5 mb-5 mx-auto'>
                     <label htmlFor='select_category' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'>Selecciona una categoría y producto</label>
                     <select id='select-category' onChange={handle_category_change}
