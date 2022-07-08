@@ -6,6 +6,7 @@ import App from './routes/App';
 import Details from './routes/Details';
 import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar';
+import Report from './routes/Report';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/details" element={<Details />} />
+      <Route path="/report/:date_from/:date_to" element={<Report />} />
     </Routes>
   </BrowserRouter>
 );
