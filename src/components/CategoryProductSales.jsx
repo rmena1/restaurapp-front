@@ -6,9 +6,9 @@ const CategoryProductSales = ({ dateFrom, dateTo }) => {
     const [categories, setCategories] = useState([]);
     const backend_url = process.env.REACT_APP_BACK_URL;
     const [info, setInfo] = useState({});
-    const [productSalesHeaders, setProductSalesHeaders] = useState(['Producto', 'Total ventas ($)']);
+    const [productSalesHeaders, setProductSalesHeaders] = useState(['Producto', 'Cantidad', 'Total ventas ($)']);
     const [productSalesData, setProductSalesData] = useState([]);
-    const [productSalesDataKeys, setProductSalesDataKeys] = useState(['name', 'sales']);
+    const [productSalesDataKeys, setProductSalesDataKeys] = useState(['name', 'quantity', 'sales']);
     const [category, setCategory] = useState('Bebidas');
 
     // Get categories from backend
